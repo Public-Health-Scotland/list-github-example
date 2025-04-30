@@ -3,8 +3,11 @@
 # Load packages ----
 source("Code/packages.R")
 
+# Set file path
+data_dir <- path("/conf/LIST_analytics/Shetland/git-training-project/Data/")
+
 # Read data ----
-raw_data <- read_csv(path("Data", "mtcars.csv"))
+raw_data <- read_csv(path(data_dir, "mtcars.csv"))
 
 # Do analysis ----
 agg_per_cyl <- raw_data |>
@@ -15,4 +18,4 @@ agg_per_cyl <- raw_data |>
   ))
 
 # Write data ----
-write_parquet(agg_per_cyl, path("Data", "aggregated_mtcars.parquet"))
+write_parquet(agg_per_cyl, path(data_dir, "aggregated_mtcars.parquet"))
